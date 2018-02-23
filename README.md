@@ -1,6 +1,8 @@
 SlidingMenu ([Play Store Demo][7])
 ===========
 
+A copy of https://github.com/jfeinstein10/SlidingMenu.
+
 SlidingMenu is an Open Source Android library that allows developers to easily create applications 
 with sliding menus like those made popular in the Google+, YouTube, and Facebook apps. Feel free 
 to use it all you want in your Android apps provided that you cite this project and include the license in your app.
