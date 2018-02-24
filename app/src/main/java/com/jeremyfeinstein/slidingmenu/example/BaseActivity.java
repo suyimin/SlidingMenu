@@ -3,6 +3,7 @@ package com.jeremyfeinstein.slidingmenu.example;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.ListFragment;
+import android.view.Menu;
 import android.view.MenuItem;
 
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
@@ -42,6 +43,7 @@ public class BaseActivity extends SlidingFragmentActivity {
 		sm.setFadeDegree(0.35f);
 		sm.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
 
+		getActionBar().setDisplayHomeAsUpEnabled(true);
 	}
 
 	@Override
@@ -57,4 +59,9 @@ public class BaseActivity extends SlidingFragmentActivity {
 		return super.onOptionsItemSelected(item);
 	}
 
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		getMenuInflater().inflate(R.menu.main, menu);
+		return true;
+	}
 }

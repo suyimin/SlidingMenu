@@ -25,10 +25,10 @@ public abstract class CustomAnimation extends BaseActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		// set the Above View
-		setContentView(R.layout.content_frame);
+		setContentView(layout.content_frame);
 		getSupportFragmentManager()
 		.beginTransaction()
-		.replace(R.id.content_frame, new SampleListFragment())
+		.replace(id.content_frame, new SampleListFragment())
 		.commit();
 		
 		SlidingMenu sm = getSlidingMenu();

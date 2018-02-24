@@ -13,7 +13,6 @@ import android.view.View.OnClickListener;
 import android.view.Window;
 import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
-
 import com.jeremyfeinstein.slidingmenu.example.R;
 
 public class BirdActivity extends Activity {
@@ -42,15 +41,17 @@ public class BirdActivity extends Activity {
 		getWindow().requestFeature(Window.FEATURE_ACTION_BAR_OVERLAY);
 		ColorDrawable color = new ColorDrawable(Color.BLACK);
 		color.setAlpha(128);
+		getActionBar().setBackgroundDrawable(color);
+		getActionBar().setDisplayHomeAsUpEnabled(true);
 		mHandler = new Handler();
 		
 		ImageView imageView = new ImageView(this);
 		imageView.setScaleType(ScaleType.CENTER_INSIDE);
 		imageView.setImageResource(resId);
 		imageView.setOnClickListener(new OnClickListener() {
-			@Override
 			public void onClick(View v) {
-
+				getActionBar().show();
+				hideActionBarDelayed(mHandler);
 			}
 		});
 		setContentView(imageView);
@@ -60,6 +61,8 @@ public class BirdActivity extends Activity {
 	@Override
 	public void onResume() {
 		super.onResume();
+		getActionBar().show();
+		hideActionBarDelayed(mHandler);
 	}
 	
 	@Override
@@ -71,5 +74,13 @@ public class BirdActivity extends Activity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
-
+	
+	private void hideActionBarDelayed(Handler handler) {
+		handler.postDelayed(new Runnable() {
+			public void run() {
+				getActionBar().hide();
+			}
+		}, 2000);
+	}
+	
 }
